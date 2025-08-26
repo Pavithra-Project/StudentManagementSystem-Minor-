@@ -1,0 +1,162 @@
+<h2>Edit Student</h2>
+<form action="/edit/<%= student._id %>?_method=PUT" method="POST">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input id="name" type="text" name="name" value="<%= student.name %>" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="rollNo">Roll No:</label>
+    <input id="rollNo" type="text" name="rollNo" value="<%= student.rollNo %>" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="department">Department:</label>
+    <input id="department" type="text" name="department" value="<%= student.department %>" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="year">Year:</label>
+    <input id="year" type="number" name="year" value="<%= student.year %>" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input id="email" type="email" name="email" value="<%= student.email %>" required>
+  </div>
+  
+  <button type="submit">Update</button>
+</form>
+
+<a href="/">← Back</a>
+
+<style>
+ 
+  body {
+    margin: 0;
+    padding: 40px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #d5a6ff, #ffb6c1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: #3e1361;
+  }
+
+  h2 {
+    margin-left: 700px;
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #5d2780;
+    align-self: flex-start;
+    max-width: 900px;
+    width: 100%;
+  }
+
+  form {
+    background: rgba(255 255 255 / 0.15);
+    backdrop-filter: blur(20px);
+    padding: 25px 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(93, 39, 128, 0.15);
+    width: 100%;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 18px 30px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255 255 255 / 0.3);
+    align-items: center;
+  }
+
+  .form-group {
+    display: contents; /* let label and input participate directly in grid */
+  }
+
+  label {
+    font-weight: 600;
+    color: #3e1361;
+    font-size: 1rem;
+    justify-self: end;
+    padding-right: 10px;
+  }
+
+  input {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #3e1361;
+    background: rgba(255 255 255 / 0.4);
+    box-shadow: inset 0 1px 4px rgba(93, 39, 128, 0.1);
+    transition: box-shadow 0.25s ease, background-color 0.25s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  input::placeholder {
+    color: #5d2780dd;
+  }
+
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 12px #c78bffaa;
+    background: rgba(255 255 255 / 0.7);
+  }
+
+  button {
+    margin-left: 450px;
+    grid-column: 1 / -1;
+    justify-self: start;
+    background: #b779ffcc;
+    border: none;
+    border-radius: 14px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 6px 18px #b779ff88;
+    transition: background-color 0.3s ease;
+    padding: 14px 40px;
+    width: auto;
+  }
+
+  button:hover {
+    background: #8f55ff;
+    box-shadow: 0 8px 22px #8f55ffcc;
+  }
+
+  a {
+    margin-left: 700px;
+    color: #5d2780;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-top: 10px;
+    align-self: flex-start;
+  }
+
+  a:hover {
+    color: #3e1361;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    form {
+      grid-template-columns: 1fr;
+    }
+    label {
+      justify-self: start;
+      padding-right: 0;
+      margin-bottom: 6px;
+    }
+    button {
+
+      justify-self: center;
+      width: 100%;
+    }
+  }
+</style>

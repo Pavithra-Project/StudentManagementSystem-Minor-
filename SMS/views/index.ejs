@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #d5a6ff, #ffb6c1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      color: #3e1361;
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 3rem;
+      margin-bottom: 30px;
+      text-shadow: 0 2px 5px rgba(62, 19, 97, 0.3);
+    }
+
+    .top-bar {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .top-bar a {
+      padding: 10px 20px;
+      background: #b779ffcc;
+      color: white;
+      border-radius: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 6px 18px #b779ff88;
+      transition: background-color 0.3s ease;
+    }
+    .top-bar a:hover {
+      background: #8f55ff;
+      box-shadow: 0 8px 22px #8f55ffcc;
+    }
+
+    table {
+      width: 100%;
+      max-width: 900px;
+      border-collapse: separate;
+      border-spacing: 0 14px;
+      background: rgba(255 255 255 / 0.15);
+      backdrop-filter: blur(20px);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(93, 39, 128, 0.15);
+      border: 1px solid rgba(255 255 255 / 0.3);
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 18px 22px;
+      text-align: left;
+      font-weight: 600;
+      color: #3e1361;
+      vertical-align: middle;
+    }
+
+    th {
+      font-size: 1.2rem;
+      letter-spacing: 0.06em;
+      border-bottom: 2px solid #b779ff99;
+    }
+
+    tr {
+      background: rgba(255 255 255 / 0.3);
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 3px 12px rgba(93, 39, 128, 0.08);
+    }
+
+    tr:hover {
+      background: rgba(255 255 255 / 0.45);
+      cursor: default;
+    }
+
+    td:last-child {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    a.edit-btn, button.delete-btn {
+      padding: 8px 16px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 3px 14px rgba(93, 39, 128, 0.12);
+      background: rgba(255 255 255 / 0.45);
+      color: #5d2780;
+      text-decoration: none;
+      transition: background-color 0.25s ease;
+      display: inline-block;
+      line-height: normal;
+    }
+
+    a.edit-btn:hover {
+      background: #d9b3ffcc;
+      color: #3e1361;
+    }
+
+    button.delete-btn:hover {
+      background: #ff8eb9cc;
+      color: white;
+    }
+
+    form {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Student Management System</h1>
+
+  <div class="top-bar">
+    <a href="/add">➕ Add Student</a>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>Department</th>
+        <th>Year</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% students.forEach(student => { %>
+        <tr>
+          <td><%= student.name %></td>
+          <td><%= student.rollNo %></td>
+          <td><%= student.department %></td>
+          <td><%= student.year %></td>
+          <td><%= student.email %></td>
+          <td>
+            <a class="edit-btn" href="/edit/<%= student._id %>">Edit</a>
+            <form action="/delete/<%= student._id %>?_method=DELETE" method="POST">
+              <button class="delete-btn" type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>
